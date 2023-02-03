@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static',    filename='img/LOGO.ico') }}" type="image/x-icon" />
+    <title>期末作業大網站</title>
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/HomePage.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+    <div class="Menu">
+        <h1>期末作業大網站</h1>
+        <nav>
+            <a>這邊沒東西</a>
+            <a>還是沒東西</a>
+            <a>就說沒東西</a>
+        </nav>
+    </div>
+
+    <h2>資料概覽</h2>
+
+    <div class="tab">
+        <button class="tablinks" onclick="opendf(event, 'theDF')">Dataframe</button>
+        <button class="tablinks" onclick="opendf(event, 'theDF++')">data Descriptive statistics</button>
+    </div>
+
+    <div id="theDF" class="tabcontent">
+        {%for table in tabledf %}
+        {{ table|safe }}
+        {% endfor %}
+    </div>
+    <div id="theDF++" class="tabcontent">
+        {%for table in tabledds %}
+        {{ table|safe }}
+        {% endfor %}
+    </div>
+
+    <form method="POST" action="{{url_for('chooseXY')}}">
+
+        <label>Choose x1:</label>
+        <select id="x1" name="x1">
+            {%for table in tablecol %}
+            <option> {{table|safe}} </option>
+            {% endfor %}
+        </select>
+
+        <label>Choose x2:</label>
+        <select id="x2" name="x2">
+            {%for table in tablecol %}
+            <option> {{table|safe}} </option>
+            {% endfor %}
+        </select>
+
+        <label>Choose x3:</label>
+        <select id="x3" name="x3">
+            {%for table in tablecol %}
+            <option> {{table|safe}} </option>
+            {% endfor %}
+        </select>
+
+        <label>Choose y:</label>
+        <select id="y" name="y">
+            {%for table in tablecol %}
+            <option> {{table|safe}} </option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+
+
+        <h2>資料分析</h2>
+        <div>
+            {%for table in pre %}
+            {{ table|safe }}
+            {% endfor %}
+        </div>
+        <div>
+            <img src="data:image/png;base64,{{ plot_url_re }}">
+        </div>
+    </form>
+
+    <div>
+        <div class="footer"></div>
+    </div>
+</body>
+
+<script>
+    function opendf(evt, chickName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(chickName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+<script src="{{ url_for('static',    filename='js/vue.js') }}"></script>
+
+</html>

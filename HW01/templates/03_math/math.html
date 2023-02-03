@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <h2>颱風大網站第三題</h2>
+</head>
+
+<body>
+    <h5>Calculate the maximum number, minimum number, Mean, SD etc.
+    </h5>
+    <h5>請輸入多個數字, 並以空格分隔</h5>
+    <form method="POST" action="{{url_for('calculate')}}">
+        <textarea name="nums" rows="5" cols="33">
+
+        </textarea>
+        <button type="submit">確認</button>
+        <h5>Max:  {{maxNum}}</h5>
+        <h5>Min:  {{minNum}}</h5>
+        <h5>Mean: {{meanNum}}</h5>
+        <h5>SD:   {{SDNum}}</h5>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <h2>颱風大網站第二題</h2>
+</head>
+
+<body>
+    <h5>Design one text box, so that user can put some data into the text box, and upload to the backend web service.
+    </h5>
+    <form method="POST" action="{{url_for('input')}}">
+        <p>請隨意輸入<input type="text" name="whatever"></p>
+        <button type="submit">確認</button>
+        <h5>你輸入的是{{whatever}}</h5>
+    </form>
+</body>
+
+</html>

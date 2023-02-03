@@ -1,0 +1,119 @@
+* {
+    font-family: setofont;
+}
+
+@font-face {
+    font-family: setofont;
+    src: url(./fonts/setofont/setofont.woff)format("woff"), url(./fonts/setofont/setofont.ttf)format("truetype"), url(./fonts/setofont/setofont.eot)format("embedded-opentype");
+}
+
+.Menu {
+    width: 100%;
+    /* height: 30px; */
+    min-height: 30px;
+    text-align: left;
+    background-color: rgb(27, 27, 27);
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.Menu h1 {
+    color: #fff282;
+    display: inline;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.Menu nav {
+    width: 100%;
+    text-align: center;
+    display: inline;
+    font-size: 0px;
+}
+
+.Menu nav a {
+    color: #fdf8c5fb;
+    text-decoration: none;
+    transition: 0.5s;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.Menu a:hover {
+    display: inline;
+    width: 100%;
+    background-color: #525252;
+    font-size: 25px;
+}
+
+.MainGraph {
+    width: 100%;
+    margin: auto;
+}
+
+.MainGraph img {
+    width: 900px;
+    display: block;
+    background-size: contain;
+    margin: auto;
+}
+
+.Text {
+    width: 900px;
+    background-color: rgba(231, 216, 175, 0.329);
+    background-image: url(./NotePaper.png);
+    background-repeat: repeat;
+    margin: 30px auto;
+    background-size: 450px;
+}
+
+body {
+    background-color: #dcdcdc;
+    font-family: setofont;
+}
+
+p {
+    font-size: 20px;
+    color: #8B4513;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.footer {
+    background-image: url(./footer.png);
+    height: 250px;
+    width: 100%;
+}
